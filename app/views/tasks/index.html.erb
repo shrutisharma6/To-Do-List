@@ -1,0 +1,17 @@
+<table>
+    <th>
+        <tr>
+            <td>Tasks</td>
+            <td colspan="2">Actions</td>
+        </tr>
+    </th>
+    <tbody>
+        <% @tasks.each do |t| %>
+            <tr>
+                <td><%= t.name %></td>
+                <td><%= link_to "Edit", edit_task_path(t) ,class:"btn btn-outline-success mr-2 sm" %></td>
+                <td><%= button_to "Complete", task_path(t), method: :delete, data: { turbo_method: :delete } ,class:"btn btn-outline-dark mr-2 sm" %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
